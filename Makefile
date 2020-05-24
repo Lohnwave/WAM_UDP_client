@@ -115,6 +115,43 @@ client/fast:
 	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
 .PHONY : client/fast
 
+#=============================================================================
+# Target rules for targets named wam_client
+
+# Build rule for target.
+wam_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wam_client
+.PHONY : wam_client
+
+# fast build rule for target.
+wam_client/fast:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/build
+.PHONY : wam_client/fast
+
+src/WAM_client.o: src/WAM_client.cpp.o
+.PHONY : src/WAM_client.o
+
+# target to build an object file
+src/WAM_client.cpp.o:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.o
+.PHONY : src/WAM_client.cpp.o
+
+src/WAM_client.i: src/WAM_client.cpp.i
+.PHONY : src/WAM_client.i
+
+# target to preprocess a source file
+src/WAM_client.cpp.i:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.i
+.PHONY : src/WAM_client.cpp.i
+
+src/WAM_client.s: src/WAM_client.cpp.s
+.PHONY : src/WAM_client.s
+
+# target to generate assembly for a file
+src/WAM_client.cpp.s:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.s
+.PHONY : src/WAM_client.cpp.s
+
 src/udp_client.o: src/udp_client.cpp.o
 .PHONY : src/udp_client.o
 
@@ -148,6 +185,10 @@ help:
 	@echo "... client"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... wam_client"
+	@echo "... src/WAM_client.o"
+	@echo "... src/WAM_client.i"
+	@echo "... src/WAM_client.s"
 	@echo "... src/udp_client.o"
 	@echo "... src/udp_client.i"
 	@echo "... src/udp_client.s"

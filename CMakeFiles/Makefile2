@@ -88,6 +88,41 @@ clean: CMakeFiles/client.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/wam_client.dir
+
+# All Build rule for target.
+CMakeFiles/wam_client.dir/all:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/depend
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles  2
+	@echo "Built target wam_client"
+.PHONY : CMakeFiles/wam_client.dir/all
+
+# Include target in all.
+all: CMakeFiles/wam_client.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/wam_client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/wam_client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 0
+.PHONY : CMakeFiles/wam_client.dir/rule
+
+# Convenience name for target.
+wam_client: CMakeFiles/wam_client.dir/rule
+.PHONY : wam_client
+
+# clean rule for target.
+CMakeFiles/wam_client.dir/clean:
+	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/clean
+.PHONY : CMakeFiles/wam_client.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/wam_client.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

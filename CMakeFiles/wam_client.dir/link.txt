@@ -1,0 +1,1 @@
+/usr/bin/c++    -pthread    CMakeFiles/wam_client.dir/src/WAM_client.cpp.o  -o wam_client  -L/usr/local/lib -rdynamic -lboost_system -lboost_filesystem -lboost_system -lboost_thread -lboost_python -lpthread -L/usr/lib -lgsl -lgslcblas -lm -lconfig -lconfig++ -lpython2.7 -lbarrett -Wl,-rpath,/usr/local/lib 
