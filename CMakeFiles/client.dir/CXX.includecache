@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wam/桌面/wam204/WAM_UDP_client/src/udp_client.cpp
+cstdlib
+-
+iostream
+-
+boost/asio.hpp
+-
+vector
+-
+string
+-
+csignal
+-
+
