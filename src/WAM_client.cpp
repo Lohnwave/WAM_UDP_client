@@ -135,7 +135,8 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 
 	wam.gravityCompensate();
 	// printMenu();
-
+  std::string initPos;
+  initPos += "0 0 0 0 0 0 0";
 	std::string line;
 	bool going = true;
 
@@ -150,6 +151,7 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
     using namespace std; // For atoi.
     cout << "running WAM (Y/N) ?" << endl;
     if(cin.get()=='Y') {
+        moveToStr(wam, &jp, "joint positions", initPos);
         //server(io_service, atoi(argv[1]), wam, &jp); 
         udp::socket sock(io_service, udp::endpoint(udp::v4(), atoi(argv[1])));
         std::cout << "waiting connect..." << std::endl;
@@ -163,7 +165,7 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
           //std::cout << data << std::endl;
           //print(msg2double(data));
           msgrebulit(line, data);
-          
+
           moveToStr(wam, &jp, "joint positions", line);
           //std::cout << data.substr(1) << std::endl;
           line.clear();
