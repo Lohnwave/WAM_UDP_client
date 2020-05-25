@@ -1,2 +1,0 @@
-#WAM_UDP_client
-UDP接收来自服务器的关节角指令，并驱动WAM执行指令
