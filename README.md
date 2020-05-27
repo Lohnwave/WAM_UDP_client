@@ -3,7 +3,7 @@ UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 
 ## 记录
 ``#Q1``：访问WAM远端服务器执行任意控制指令时都会抛出``异常``
-# WAM_UDP_client
+## v1：WAM_UDP_client
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 ## ``#1: wam.moveTo``
 使用``moveTo``执行过慢，使得遥操作不能够实时，延迟以秒记。
@@ -26,7 +26,7 @@ UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 ```
 ### 修改有效，画圆加速
 
-## wam_udp_jp_realtime
+## v2:wam_udp_jp_realtime
 基于ex06编写了wam_udp_jp_realtime.cpp
 * 使用子线程对接收udp传送的关节角
 * 主线程执行system move
