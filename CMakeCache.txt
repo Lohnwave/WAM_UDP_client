@@ -24,7 +24,7 @@ Boost_DIR:PATH=Boost_DIR-NOTFOUND
 Boost_INCLUDE_DIR:PATH=/usr/include
 
 //client
-CLIENT:BOOL=ON
+CLIENT:BOOL=OFF
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
@@ -180,8 +180,8 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//server
-SERVER:BOOL=ON
+//ex06
+EX06:BOOL=ON
 
 //wam_client
 WAM_CLIENT:BOOL=ON

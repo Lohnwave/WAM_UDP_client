@@ -103,17 +103,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named client
+# Target rules for targets named ex06
 
 # Build rule for target.
-client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 client
-.PHONY : client
+ex06: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ex06
+.PHONY : ex06
 
 # fast build rule for target.
-client/fast:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-.PHONY : client/fast
+ex06/fast:
+	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/build
+.PHONY : ex06/fast
 
 #=============================================================================
 # Target rules for targets named wam_client
@@ -152,29 +152,29 @@ src/WAM_client.cpp.s:
 	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.s
 .PHONY : src/WAM_client.cpp.s
 
-src/udp_client.o: src/udp_client.cpp.o
-.PHONY : src/udp_client.o
+src/ex06_realtime_move.o: src/ex06_realtime_move.cpp.o
+.PHONY : src/ex06_realtime_move.o
 
 # target to build an object file
-src/udp_client.cpp.o:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/udp_client.cpp.o
-.PHONY : src/udp_client.cpp.o
+src/ex06_realtime_move.cpp.o:
+	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.o
+.PHONY : src/ex06_realtime_move.cpp.o
 
-src/udp_client.i: src/udp_client.cpp.i
-.PHONY : src/udp_client.i
+src/ex06_realtime_move.i: src/ex06_realtime_move.cpp.i
+.PHONY : src/ex06_realtime_move.i
 
 # target to preprocess a source file
-src/udp_client.cpp.i:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/udp_client.cpp.i
-.PHONY : src/udp_client.cpp.i
+src/ex06_realtime_move.cpp.i:
+	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.i
+.PHONY : src/ex06_realtime_move.cpp.i
 
-src/udp_client.s: src/udp_client.cpp.s
-.PHONY : src/udp_client.s
+src/ex06_realtime_move.s: src/ex06_realtime_move.cpp.s
+.PHONY : src/ex06_realtime_move.s
 
 # target to generate assembly for a file
-src/udp_client.cpp.s:
-	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/udp_client.cpp.s
-.PHONY : src/udp_client.cpp.s
+src/ex06_realtime_move.cpp.s:
+	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.s
+.PHONY : src/ex06_realtime_move.cpp.s
 
 # Help Target
 help:
@@ -182,16 +182,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... client"
 	@echo "... edit_cache"
+	@echo "... ex06"
 	@echo "... rebuild_cache"
 	@echo "... wam_client"
 	@echo "... src/WAM_client.o"
 	@echo "... src/WAM_client.i"
 	@echo "... src/WAM_client.s"
-	@echo "... src/udp_client.o"
-	@echo "... src/udp_client.i"
-	@echo "... src/udp_client.s"
+	@echo "... src/ex06_realtime_move.o"
+	@echo "... src/ex06_realtime_move.i"
+	@echo "... src/ex06_realtime_move.s"
 .PHONY : help
 
 

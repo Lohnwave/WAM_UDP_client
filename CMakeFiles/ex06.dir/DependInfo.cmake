@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wam/桌面/wam204/WAM_UDP_client/src/udp_client.cpp" "/home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles/client.dir/src/udp_client.cpp.o"
+  "/home/wam/桌面/wam204/WAM_UDP_client/src/ex06_realtime_move.cpp" "/home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
