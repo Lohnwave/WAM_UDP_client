@@ -21,6 +21,15 @@ using boost::asio::ip::udp;
 boost::mutex jpw_mutex;
 std::vector<double> th_j(7);
 enum { max_length = 1024 };
+void initJp() {
+    th_j[0] = -0.20;
+    th_j[1] = 0.48;
+    th_j[2] = 0.30;
+    th_j[3] = 2.28;
+    th_j[4] = -3.10;
+    th_j[5] = 1.16;
+    th_j[6] = 2.98;
+}
 
 template <size_t DOF>
 class JpCircle : public systems::SingleIO<double, typename units::JointPositions<DOF>::type> {
@@ -123,13 +132,21 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 		jp_type rt_jp_cmd;
 		systems::RateLimiter<jp_type> jp_rl;
 		//Sets the joints to move at 1 m/s
-		const double rLimit[] = {2, 2, 2, 2, 2, 2, 2};// 20200527 修改为2m/s
+		const double rLimit[] = {0.1, 0.1, 0.1, 0.1, 0.5, 0.5, 0.5};// 20200527 
 
 		for(size_t i = 0; i < DOF; ++i)
 			rt_jp_cmd[i] = rLimit[i];
 
 		// Set start position, depending on robot type and configuration.
 		jp_type startPos(0.0);
+        startPos[0] = -0.2;
+        startPos[1] = 0.48;
+        startPos[2] = 0.30;
+        startPos[3] = 2.28;
+        startPos[4] = -3.10;
+        startPos[5] = 1.16;
+        startPos[6] = 2.98;
+        initJp(); // init th_jp
 		
 		systems::Ramp time(pm.getExecutionManager(), 1.0);
 

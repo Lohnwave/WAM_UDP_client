@@ -1,11 +1,8 @@
-#WAM_UDP_client
+# WAM_UDP_client
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 
-##记录
+## 记录
 ``#Q1``：访问WAM远端服务器执行任意控制指令时都会抛出``异常``
-````
-``#2as``： 
-=======
 # WAM_UDP_client
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 ## ``#1: wam.moveTo``
