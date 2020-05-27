@@ -103,19 +103,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ex06
-
-# Build rule for target.
-ex06: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ex06
-.PHONY : ex06
-
-# fast build rule for target.
-ex06/fast:
-	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/build
-.PHONY : ex06/fast
-
-#=============================================================================
 # Target rules for targets named wam_client
 
 # Build rule for target.
@@ -127,6 +114,19 @@ wam_client: cmake_check_build_system
 wam_client/fast:
 	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/build
 .PHONY : wam_client/fast
+
+#=============================================================================
+# Target rules for targets named wam_udp_jp_realtime
+
+# Build rule for target.
+wam_udp_jp_realtime: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wam_udp_jp_realtime
+.PHONY : wam_udp_jp_realtime
+
+# fast build rule for target.
+wam_udp_jp_realtime/fast:
+	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/build
+.PHONY : wam_udp_jp_realtime/fast
 
 src/WAM_client.o: src/WAM_client.cpp.o
 .PHONY : src/WAM_client.o
@@ -152,29 +152,29 @@ src/WAM_client.cpp.s:
 	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.s
 .PHONY : src/WAM_client.cpp.s
 
-src/ex06_realtime_move.o: src/ex06_realtime_move.cpp.o
-.PHONY : src/ex06_realtime_move.o
+src/wam_udp_jp_realtime.o: src/wam_udp_jp_realtime.cpp.o
+.PHONY : src/wam_udp_jp_realtime.o
 
 # target to build an object file
-src/ex06_realtime_move.cpp.o:
-	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.o
-.PHONY : src/ex06_realtime_move.cpp.o
+src/wam_udp_jp_realtime.cpp.o:
+	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/src/wam_udp_jp_realtime.cpp.o
+.PHONY : src/wam_udp_jp_realtime.cpp.o
 
-src/ex06_realtime_move.i: src/ex06_realtime_move.cpp.i
-.PHONY : src/ex06_realtime_move.i
+src/wam_udp_jp_realtime.i: src/wam_udp_jp_realtime.cpp.i
+.PHONY : src/wam_udp_jp_realtime.i
 
 # target to preprocess a source file
-src/ex06_realtime_move.cpp.i:
-	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.i
-.PHONY : src/ex06_realtime_move.cpp.i
+src/wam_udp_jp_realtime.cpp.i:
+	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/src/wam_udp_jp_realtime.cpp.i
+.PHONY : src/wam_udp_jp_realtime.cpp.i
 
-src/ex06_realtime_move.s: src/ex06_realtime_move.cpp.s
-.PHONY : src/ex06_realtime_move.s
+src/wam_udp_jp_realtime.s: src/wam_udp_jp_realtime.cpp.s
+.PHONY : src/wam_udp_jp_realtime.s
 
 # target to generate assembly for a file
-src/ex06_realtime_move.cpp.s:
-	$(MAKE) -f CMakeFiles/ex06.dir/build.make CMakeFiles/ex06.dir/src/ex06_realtime_move.cpp.s
-.PHONY : src/ex06_realtime_move.cpp.s
+src/wam_udp_jp_realtime.cpp.s:
+	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/src/wam_udp_jp_realtime.cpp.s
+.PHONY : src/wam_udp_jp_realtime.cpp.s
 
 # Help Target
 help:
@@ -183,15 +183,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... ex06"
 	@echo "... rebuild_cache"
 	@echo "... wam_client"
+	@echo "... wam_udp_jp_realtime"
 	@echo "... src/WAM_client.o"
 	@echo "... src/WAM_client.i"
 	@echo "... src/WAM_client.s"
-	@echo "... src/ex06_realtime_move.o"
-	@echo "... src/ex06_realtime_move.i"
-	@echo "... src/ex06_realtime_move.s"
+	@echo "... src/wam_udp_jp_realtime.o"
+	@echo "... src/wam_udp_jp_realtime.i"
+	@echo "... src/wam_udp_jp_realtime.s"
 .PHONY : help
 
 

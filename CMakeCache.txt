@@ -189,6 +189,9 @@ WAM_CLIENT:BOOL=ON
 //Value Computed by CMake
 WAM_UDP_BINARY_DIR:STATIC=/home/wam/桌面/wam204/WAM_UDP_client
 
+//wam_udp_jp_realtime
+WAM_UDP_JP_REALTIME:BOOL=ON
+
 //Value Computed by CMake
 WAM_UDP_SOURCE_DIR:STATIC=/home/wam/桌面/wam204/WAM_UDP_client
 

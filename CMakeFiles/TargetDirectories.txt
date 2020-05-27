@@ -1,2 +1,2 @@
-/home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles/ex06.dir
 /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles/wam_client.dir
+/home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles/wam_udp_jp_realtime.dir
