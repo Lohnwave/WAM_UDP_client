@@ -103,6 +103,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named threadtest
+
+# Build rule for target.
+threadtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 threadtest
+.PHONY : threadtest
+
+# fast build rule for target.
+threadtest/fast:
+	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/build
+.PHONY : threadtest/fast
+
+#=============================================================================
 # Target rules for targets named wam_client
 
 # Build rule for target.
@@ -152,6 +165,30 @@ src/WAM_client.cpp.s:
 	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.s
 .PHONY : src/WAM_client.cpp.s
 
+src/threadtest.o: src/threadtest.cpp.o
+.PHONY : src/threadtest.o
+
+# target to build an object file
+src/threadtest.cpp.o:
+	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.o
+.PHONY : src/threadtest.cpp.o
+
+src/threadtest.i: src/threadtest.cpp.i
+.PHONY : src/threadtest.i
+
+# target to preprocess a source file
+src/threadtest.cpp.i:
+	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.i
+.PHONY : src/threadtest.cpp.i
+
+src/threadtest.s: src/threadtest.cpp.s
+.PHONY : src/threadtest.s
+
+# target to generate assembly for a file
+src/threadtest.cpp.s:
+	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.s
+.PHONY : src/threadtest.cpp.s
+
 src/wam_udp_jp_realtime.o: src/wam_udp_jp_realtime.cpp.o
 .PHONY : src/wam_udp_jp_realtime.o
 
@@ -184,11 +221,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... threadtest"
 	@echo "... wam_client"
 	@echo "... wam_udp_jp_realtime"
 	@echo "... src/WAM_client.o"
 	@echo "... src/WAM_client.i"
 	@echo "... src/WAM_client.s"
+	@echo "... src/threadtest.o"
+	@echo "... src/threadtest.i"
+	@echo "... src/threadtest.s"
 	@echo "... src/wam_udp_jp_realtime.o"
 	@echo "... src/wam_udp_jp_realtime.i"
 	@echo "... src/wam_udp_jp_realtime.s"

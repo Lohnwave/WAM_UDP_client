@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wam/桌面/wam204/WAM_UDP_client/src/threadtest.cpp
+boost/thread.hpp
+-
+boost/thread/mutex.hpp
+-
+string
+-
+iostream
+-
+

@@ -53,6 +53,10 @@
         "typeinfo": "cpp",
         "newstdvector": "cpp",
         "stdvector": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "observer_ptr": "cpp",
+        "string": "cpp",
+        "*.h++": "cpp",
+        "export": "cpp"
     }
 }

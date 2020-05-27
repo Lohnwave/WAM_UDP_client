@@ -3,7 +3,7 @@ project(WAM_UDP)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
-option(CLIENT "client" OFF)
+option(THREADTEST "threadtest" ON)
 option(WAM_CLIENT "wam_client" ON)
 option(WAM_UDP_JP_REALTIME "wam_udp_jp_realtime" ON)
 ## boost
@@ -13,7 +13,7 @@ include_directories(${BOOST_INCLUDE_DIR})
 ## wam
 include_directories("include/")
 
-if(CLIENT)
+if(THREADTEST)
 	## libbarrett
 	find_package(Barrett REQUIRED)
 	include_directories(${BARRETT_INCLUDE_DIRS})
@@ -21,9 +21,9 @@ if(CLIENT)
 	add_definitions(${BARRETT_DEFINITIONS})
 
 	##add_executable(wam_server src/wam_server.cpp)
-	add_executable(client src/udp_client.cpp)
+	add_executable(threadtest src/threadtest.cpp)
 	##target_link_libraries(wam_server boost_system boost_filesystem ${BARRETT_LIBRARIES})
-	target_link_libraries(client boost_system boost_filesystem ${BARRETT_LIBRARIES})
+	target_link_libraries(threadtest boost_system boost_filesystem ${BARRETT_LIBRARIES})
 endif()
 
 if(WAM_CLIENT)
