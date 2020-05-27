@@ -1,4 +1,4 @@
-# WAM_UDP_client
+# WAM实时遥操作
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 
 ## 记录
@@ -8,8 +8,8 @@ UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 ## ``#1: wam.moveTo``
 使用``moveTo``执行过慢，使得遥操作不能够实时，延迟以秒记。
 
-# ex06采用system关节角控制画圆
-## 测试加速画圆
+## ex06采用system关节角控制画圆
+### 测试加速画圆
 * 通过Rate Limiter ``jp_rl``限制关节角速度为2m/s
 讲
 * 修改``omega``为2
@@ -24,4 +24,13 @@ UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 	}
 
 ```
-## 修改有效，画圆加速
+### 修改有效，画圆加速
+
+## wam_udp_jp_realtime
+基于ex06编写了wam_udp_jp_realtime.cpp
+* 使用子线程对接收udp传送的关节角
+* 主线程执行system move
+* 根据实际WAM的抖动情况调节了rLimit
+```c++
+const double rLimit[] = {0.1, 0.1, 0.1, 0.1, 0.5, 0.5, 0.5};// 20200527 
+```
