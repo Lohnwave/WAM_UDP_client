@@ -103,30 +103,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named threadtest
+# Target rules for targets named bhand_wam_test
 
 # Build rule for target.
-threadtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 threadtest
-.PHONY : threadtest
+bhand_wam_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bhand_wam_test
+.PHONY : bhand_wam_test
 
 # fast build rule for target.
-threadtest/fast:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/build
-.PHONY : threadtest/fast
-
-#=============================================================================
-# Target rules for targets named wam_client
-
-# Build rule for target.
-wam_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 wam_client
-.PHONY : wam_client
-
-# fast build rule for target.
-wam_client/fast:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/build
-.PHONY : wam_client/fast
+bhand_wam_test/fast:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/build
+.PHONY : bhand_wam_test/fast
 
 #=============================================================================
 # Target rules for targets named wam_udp_jp_realtime
@@ -141,53 +128,29 @@ wam_udp_jp_realtime/fast:
 	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/build
 .PHONY : wam_udp_jp_realtime/fast
 
-src/WAM_client.o: src/WAM_client.cpp.o
-.PHONY : src/WAM_client.o
+src/bhand_wam_test.o: src/bhand_wam_test.cpp.o
+.PHONY : src/bhand_wam_test.o
 
 # target to build an object file
-src/WAM_client.cpp.o:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.o
-.PHONY : src/WAM_client.cpp.o
+src/bhand_wam_test.cpp.o:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/src/bhand_wam_test.cpp.o
+.PHONY : src/bhand_wam_test.cpp.o
 
-src/WAM_client.i: src/WAM_client.cpp.i
-.PHONY : src/WAM_client.i
-
-# target to preprocess a source file
-src/WAM_client.cpp.i:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.i
-.PHONY : src/WAM_client.cpp.i
-
-src/WAM_client.s: src/WAM_client.cpp.s
-.PHONY : src/WAM_client.s
-
-# target to generate assembly for a file
-src/WAM_client.cpp.s:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/src/WAM_client.cpp.s
-.PHONY : src/WAM_client.cpp.s
-
-src/threadtest.o: src/threadtest.cpp.o
-.PHONY : src/threadtest.o
-
-# target to build an object file
-src/threadtest.cpp.o:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.o
-.PHONY : src/threadtest.cpp.o
-
-src/threadtest.i: src/threadtest.cpp.i
-.PHONY : src/threadtest.i
+src/bhand_wam_test.i: src/bhand_wam_test.cpp.i
+.PHONY : src/bhand_wam_test.i
 
 # target to preprocess a source file
-src/threadtest.cpp.i:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.i
-.PHONY : src/threadtest.cpp.i
+src/bhand_wam_test.cpp.i:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/src/bhand_wam_test.cpp.i
+.PHONY : src/bhand_wam_test.cpp.i
 
-src/threadtest.s: src/threadtest.cpp.s
-.PHONY : src/threadtest.s
+src/bhand_wam_test.s: src/bhand_wam_test.cpp.s
+.PHONY : src/bhand_wam_test.s
 
 # target to generate assembly for a file
-src/threadtest.cpp.s:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/src/threadtest.cpp.s
-.PHONY : src/threadtest.cpp.s
+src/bhand_wam_test.cpp.s:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/src/bhand_wam_test.cpp.s
+.PHONY : src/bhand_wam_test.cpp.s
 
 src/wam_udp_jp_realtime.o: src/wam_udp_jp_realtime.cpp.o
 .PHONY : src/wam_udp_jp_realtime.o
@@ -219,17 +182,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... bhand_wam_test"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... threadtest"
-	@echo "... wam_client"
 	@echo "... wam_udp_jp_realtime"
-	@echo "... src/WAM_client.o"
-	@echo "... src/WAM_client.i"
-	@echo "... src/WAM_client.s"
-	@echo "... src/threadtest.o"
-	@echo "... src/threadtest.i"
-	@echo "... src/threadtest.s"
+	@echo "... src/bhand_wam_test.o"
+	@echo "... src/bhand_wam_test.i"
+	@echo "... src/bhand_wam_test.s"
 	@echo "... src/wam_udp_jp_realtime.o"
 	@echo "... src/wam_udp_jp_realtime.i"
 	@echo "... src/wam_udp_jp_realtime.s"

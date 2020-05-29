@@ -53,73 +53,38 @@ CMAKE_SOURCE_DIR = /home/wam/桌面/wam204/WAM_UDP_client
 CMAKE_BINARY_DIR = /home/wam/桌面/wam204/WAM_UDP_client
 
 #=============================================================================
-# Target rules for target CMakeFiles/threadtest.dir
+# Target rules for target CMakeFiles/bhand_wam_test.dir
 
 # All Build rule for target.
-CMakeFiles/threadtest.dir/all:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/depend
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/build
+CMakeFiles/bhand_wam_test.dir/all:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/depend
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles  1
-	@echo "Built target threadtest"
-.PHONY : CMakeFiles/threadtest.dir/all
+	@echo "Built target bhand_wam_test"
+.PHONY : CMakeFiles/bhand_wam_test.dir/all
 
 # Include target in all.
-all: CMakeFiles/threadtest.dir/all
+all: CMakeFiles/bhand_wam_test.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/threadtest.dir/rule: cmake_check_build_system
+CMakeFiles/bhand_wam_test.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/threadtest.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bhand_wam_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 0
-.PHONY : CMakeFiles/threadtest.dir/rule
+.PHONY : CMakeFiles/bhand_wam_test.dir/rule
 
 # Convenience name for target.
-threadtest: CMakeFiles/threadtest.dir/rule
-.PHONY : threadtest
+bhand_wam_test: CMakeFiles/bhand_wam_test.dir/rule
+.PHONY : bhand_wam_test
 
 # clean rule for target.
-CMakeFiles/threadtest.dir/clean:
-	$(MAKE) -f CMakeFiles/threadtest.dir/build.make CMakeFiles/threadtest.dir/clean
-.PHONY : CMakeFiles/threadtest.dir/clean
+CMakeFiles/bhand_wam_test.dir/clean:
+	$(MAKE) -f CMakeFiles/bhand_wam_test.dir/build.make CMakeFiles/bhand_wam_test.dir/clean
+.PHONY : CMakeFiles/bhand_wam_test.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/threadtest.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/wam_client.dir
-
-# All Build rule for target.
-CMakeFiles/wam_client.dir/all:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/depend
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles  2
-	@echo "Built target wam_client"
-.PHONY : CMakeFiles/wam_client.dir/all
-
-# Include target in all.
-all: CMakeFiles/wam_client.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/wam_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/wam_client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles 0
-.PHONY : CMakeFiles/wam_client.dir/rule
-
-# Convenience name for target.
-wam_client: CMakeFiles/wam_client.dir/rule
-.PHONY : wam_client
-
-# clean rule for target.
-CMakeFiles/wam_client.dir/clean:
-	$(MAKE) -f CMakeFiles/wam_client.dir/build.make CMakeFiles/wam_client.dir/clean
-.PHONY : CMakeFiles/wam_client.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/wam_client.dir/clean
+clean: CMakeFiles/bhand_wam_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -129,7 +94,7 @@ clean: CMakeFiles/wam_client.dir/clean
 CMakeFiles/wam_udp_jp_realtime.dir/all:
 	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/depend
 	$(MAKE) -f CMakeFiles/wam_udp_jp_realtime.dir/build.make CMakeFiles/wam_udp_jp_realtime.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/wam/桌面/wam204/WAM_UDP_client/CMakeFiles  2
 	@echo "Built target wam_udp_jp_realtime"
 .PHONY : CMakeFiles/wam_udp_jp_realtime.dir/all
 

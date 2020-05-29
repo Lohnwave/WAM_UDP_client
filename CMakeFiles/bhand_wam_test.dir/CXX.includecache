@@ -6,10 +6,18 @@
 
 #IncludeRegexTransform: 
 
-/home/wam/桌面/wam204/WAM_UDP_client/src/ex06_realtime_move.cpp
+/home/wam/桌面/wam204/WAM_UDP_client/src/bhand_wam_test.cpp
 iostream
 -
 string
+-
+vector
+-
+boost/asio.hpp
+-
+boost/thread.hpp
+-
+boost/thread/mutex.hpp
 -
 barrett/units.h
 -
