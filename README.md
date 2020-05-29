@@ -2,7 +2,10 @@
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 
 ## 记录
-``#Q1``：访问WAM远端服务器执行任意控制指令时都会抛出``异常``
+* ``#Q1``：访问WAM远端服务器执行任意控制指令时都会抛出``异常``
+* ``#A1``: 是发生在``bt-wam-zerocal``和``bt-wam-gravitycal``期间突然中止。
+> CSDN [解决方法``LINK``](https://blog.csdn.net/sinat_31538869/article/details/106328075)
+
 ## v1：WAM_UDP_client
 UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 ## ``#1: wam.moveTo``
@@ -28,7 +31,7 @@ UDP接收来自服务器的关节角指令，并驱动WAM执行指令
 
 ## v2:wam_udp_jp_realtime
 基于ex06编写了wam_udp_jp_realtime.cpp
-* 使用子线程对接收udp传送的关节角
+* 使用子线程接收udp传送的关节角
 * 主线程执行system move
 * 根据实际WAM的抖动情况调节了rLimit
 ```c++

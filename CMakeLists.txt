@@ -3,8 +3,8 @@ project(WAM_UDP)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
-option(THREADTEST "threadtest" ON)
-option(WAM_CLIENT "wam_client" ON)
+option(THREADTEST "threadtest" OFF)
+option(WAM_CLIENT "wam_client" OFF)
 option(WAM_UDP_JP_REALTIME "wam_udp_jp_realtime" ON)
 ## boost
 find_package(Boost 1.46 REQUIRED)
