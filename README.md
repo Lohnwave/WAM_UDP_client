@@ -138,3 +138,6 @@ Example:
 	move F1 to position 10000
 */
 ```
+```c++
+void setPositionCommand(const jp_type& jp, unsigned int whichDigits = WHOLE_HAND) const;
+```

@@ -119,12 +119,10 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 
 	wam.gravityCompensate();
   	try {
-        /*
 		if (argc != 2) {
 			std::cerr << "Usage: blocking_udp_echo_server <port>\n";
       		return 1;
     	}
-*/
         if (!pm.foundHand()) {
             std::cerr << "ERROR: No hand found...";
             return 1;
@@ -157,36 +155,38 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 
 		printf("Press [Enter] to move the end-point in circles using joint position control.");
 		waitForEnter();
-        // test Bhand
+        	// test Bhand
         wam.moveTo(startPos);
 
         Hand& hand = *pm.getHand();
         hand.initialize();
-        hand.close();
-        hand.open();
-        hand.close(Hand::SPREAD);
-        hand.close(Hand::GRASP);
-        hand.open();
 
-        Hand::jp_type firstPosMove;
-        Hand::jp_type secondPosMove;
-        firstPosMove[0] = 1.0;
-        firstPosMove[1] = 2.4;
-        firstPosMove[2] = 0.5;
-        firstPosMove[3] = 1.57;
-        secondPosMove[0] = 0.0;
-        secondPosMove[1] = 1.5;
-        secondPosMove[2] = 2.4;
-        secondPosMove[3] = 3.14;
-        hand.trapezoidalMove(firstPosMove);
-        hand.trapezoidalMove(secondPosMove);
-        hand.open();
-/*
+        Hand::jp_type finger_val;
+		
+		finger_val[0] = 1.0;
+		finger_val[1] = 1.0;
+		finger_val[2] = 1.0;
+		//finger_val[3] = 3.14;
+		
+        hand.trapezoidalMove(finger_val);
+		
+		finger_val[0] = 2.0;
+		finger_val[1] = 2.0;
+		finger_val[2] = 2.0;
+		
+		hand.trapezoidalMove(finger_val);
+		//hand.close();
+		//hand.close("");
+		printf("Press [Enter] to begin WAM move");
+		waitForEnter();
+
+		hand.close();
+
 		boost::thread* ghcThread = NULL;
 		ghcThread = new boost::thread(sockGetjp, atoi(argv[1]));
 		ghcThread->detach();
 
-		wam.moveTo(startPos);
+		//wam.moveTo(startPos);
 		//Indicate the current position and the maximum rate limit to the rate limiter
 		jp_rl.setCurVal(wam.getJointPositions());
 		jp_rl.setLimit(rt_jp_cmd);
@@ -198,9 +198,8 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 		systems::connect(jpc.output, jp_rl.input);
 		wam.trackReferenceSignal(jp_rl.output);
 		time.smoothStart(TRANSITION_DURATION);
-*/
 		printf("Press [Enter] to stop.");
-        //delete ghcThread;
+        delete ghcThread;
 		waitForEnter();
 		time.smoothStop(TRANSITION_DURATION);
 		wam.idle();
