@@ -137,9 +137,14 @@ Example:
 	move F1 to position 10000
 */
 ```
+<<<<<<< HEAD
 ### 3.2 unity bhand control
 ```c#
 fingeradd01 = 85 * (130 - (fingerDistance[0]-25)) / 130;
 fingeradd02 = 85 * (170 - (fingerDistance[1] - 20)) / 170;
 fingeradd00 = fingeradd01 > fingeradd02 ? fingeradd01 : fingeradd02;
+=======
+```c++
+void setPositionCommand(const jp_type& jp, unsigned int whichDigits = WHOLE_HAND) const;
+>>>>>>> ace1142ec9a260d671ab5c3886cbf91b7f102d6a
 ```
