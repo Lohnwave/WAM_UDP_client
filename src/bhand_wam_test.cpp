@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h> // for fabs
 
 #include <boost/asio.hpp> // for udp
 #include <boost/thread.hpp> // for thread udp
@@ -19,16 +20,23 @@ using detail::waitForEnter;
 using boost::asio::ip::udp;
 
 boost::mutex jpw_mutex;
-std::vector<double> th_j(7);
+const size_t JOINT_NUM = 9;// WAM 7 joints and bhand 4 motors
+std::vector<double> rev_data(JOINT_NUM); // udp get data
+//std::vector<double> bh_j(4); // bhand F1 F2 F3 spread motors
+
+
 enum { max_length = 1024 };
+
 void initJp() {
-    th_j[0] = -0.20;
-    th_j[1] = 0.48;
-    th_j[2] = 0.30;
-    th_j[3] = 2.28;
-    th_j[4] = -3.10;
-    th_j[5] = 1.16;
-    th_j[6] = 2.98;
+	rev_data[0] = 0.019;
+	rev_data[1] = 0.719;
+	rev_data[2] = -0.055;
+	rev_data[3] = 2.210;
+	rev_data[4] = 0.113;
+	rev_data[5] = 0.208;
+	rev_data[6] = -0.110;
+	rev_data[7] = 130;
+	rev_data[8] = 170;
 }
 
 template <size_t DOF>
@@ -68,13 +76,13 @@ protected:
 	virtual void operate() {
 //		theta = omega * this->input.getValue();
 		// jpw_mutex.lock();
-		jp[0] = th_j[0];
-		jp[1] = th_j[1];
-		jp[2] = th_j[2];
-		jp[3] = th_j[3];
-		jp[4] = th_j[4];
-		jp[5] = th_j[5];
-		jp[6] = th_j[6];
+		jp[0] = rev_data[0];
+		jp[1] = rev_data[1];
+		jp[2] = rev_data[2];
+		jp[3] = rev_data[3];
+		jp[4] = rev_data[4];
+		jp[5] = rev_data[5];
+		jp[6] = rev_data[6];
 		// jpw_mutex.unlock();
 		// jp[i1] = amp * std::sin(theta) + jp_0[i1];
 		// jp[i2] = amp * (std::cos(theta) - 1.0) + jp_0[i2];
@@ -93,16 +101,16 @@ void sockGetjp(short port) {
     while (going) {
         char data[max_length];
         udp::endpoint sender_endpoint;
-        size_t length = sock.receive_from(
+        sock.receive_from(
           boost::asio::buffer(data, max_length), sender_endpoint);
 		size_t msglen = strlen(data);
-		size_t jointnum = 7;
+
 		size_t i = 0, jcount = 0;
 		std::string temp;
 		jpw_mutex.lock();
-		while(i<msglen&&jcount<7) {
+		while(i<msglen&&jcount<JOINT_NUM) {
 			if (data[i]==',') {
-			th_j[jcount] = atof(temp.c_str());
+			rev_data[jcount] = atof(temp.c_str());
 			temp.clear();
 			jcount++;
 			} else {
@@ -113,18 +121,35 @@ void sockGetjp(short port) {
 		jpw_mutex.unlock();
     }
 }
+
+void bhandMove(Hand& hand) {
+	Hand::jp_type fj_val;
+	bool going = true;
+	while(going) {
+		jpw_mutex.lock();
+		//fj_val[0] = fabs(M_PI_2*(130-rev_data[7])/130);
+		//fj_val[1] = fabs(M_PI_2*(170-rev_data[8])/170);
+		fj_val[0] = fabs(2*(130-rev_data[7])/130); // 130 mm this distance between F0 and F1
+		//fj_val[1] = fabs(2*(170-rev_data[8])/170);
+		fj_val[1] = fj_val[0];
+		fj_val[2] = fj_val[0]>fj_val[1]?fj_val[0]:fj_val[1]; // 
+		fj_val[3] = 0;
+		jpw_mutex.unlock();
+		hand.trapezoidalMove(fj_val);
+		//hand.setPositionCommand(fj_val);
+	}
+}
+
 template<size_t DOF>
 int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) {
 	BARRETT_UNITS_TEMPLATE_TYPEDEFS(DOF);
 
 	wam.gravityCompensate();
   	try {
-        /*
 		if (argc != 2) {
 			std::cerr << "Usage: blocking_udp_echo_server <port>\n";
       		return 1;
     	}
-*/
         if (!pm.foundHand()) {
             std::cerr << "ERROR: No hand found...";
             return 1;
@@ -137,56 +162,42 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 		jp_type rt_jp_cmd;
 		systems::RateLimiter<jp_type> jp_rl;
 		//Sets the joints to move at 1 m/s
-		const double rLimit[] = {0.1, 0.1, 0.1, 0.1, 0.5, 0.5, 0.5};// 20200527 
+		const double rLimit[] = {0.1, 0.08, 0.1, 0.1, 0.5, 0.5, 0.5};// 20200527 
 
 		for(size_t i = 0; i < DOF; ++i)
 			rt_jp_cmd[i] = rLimit[i];
 
 		// Set start position, depending on robot type and configuration.
 		jp_type startPos(0.0);
-        startPos[0] = -0.2;
-        startPos[1] = 0.48;
-        startPos[2] = 0.30;
-        startPos[3] = 2.28;
-        startPos[4] = -3.10;
-        startPos[5] = 1.16;
-        startPos[6] = 2.98;
-        initJp(); // init th_jp
-		
+		startPos[0] = 0.019;
+		startPos[1] = 0.719;
+		startPos[2] = -0.055;
+		startPos[3] = 2.210;
+		startPos[4] = 0.113;
+		startPos[5] = 0.208;
+		startPos[6] = -0.110;
+		initJp(); // init th_jp
 		systems::Ramp time(pm.getExecutionManager(), 1.0);
 
-		printf("Press [Enter] to move the end-point in circles using joint position control.");
+		printf("Press [Enter] toinitialize joint position control.");
 		waitForEnter();
-        // test Bhand
-        wam.moveTo(startPos);
-
-        Hand& hand = *pm.getHand();
-        hand.initialize();
-        hand.close();
-        hand.open();
-        hand.close(Hand::SPREAD);
-        hand.close(Hand::GRASP);
-        hand.open();
-
-        Hand::jp_type firstPosMove;
-        Hand::jp_type secondPosMove;
-        firstPosMove[0] = 1.0;
-        firstPosMove[1] = 2.4;
-        firstPosMove[2] = 0.5;
-        firstPosMove[3] = 1.57;
-        secondPosMove[0] = 0.0;
-        secondPosMove[1] = 1.5;
-        secondPosMove[2] = 2.4;
-        secondPosMove[3] = 3.14;
-        hand.trapezoidalMove(firstPosMove);
-        hand.trapezoidalMove(secondPosMove);
-        hand.open();
-/*
-		boost::thread* ghcThread = NULL;
-		ghcThread = new boost::thread(sockGetjp, atoi(argv[1]));
-		ghcThread->detach();
-
-		wam.moveTo(startPos);
+		
+		wam.moveTo(startPos); 
+		Hand& hand = *pm.getHand();
+		hand.initialize();
+		//hand.close();
+		//hand.open();
+		printf("Press [Enter] to begin WAM move");
+		waitForEnter();
+		
+		boost::thread* wamThread = NULL;
+		boost::thread* bhThread = NULL;
+		wamThread = new boost::thread(sockGetjp, atoi(argv[1]));
+		wamThread->detach();
+		
+		bhThread = new boost::thread(bhandMove, boost::ref(hand));
+		bhThread->detach();
+		//wam.moveTo(startPos);
 		//Indicate the current position and the maximum rate limit to the rate limiter
 		jp_rl.setCurVal(wam.getJointPositions());
 		jp_rl.setLimit(rt_jp_cmd);
@@ -198,10 +209,13 @@ int wam_main(int argc, char** argv, ProductManager& pm, systems::Wam<DOF>& wam) 
 		systems::connect(jpc.output, jp_rl.input);
 		wam.trackReferenceSignal(jp_rl.output);
 		time.smoothStart(TRANSITION_DURATION);
-*/
+
 		printf("Press [Enter] to stop.");
-        //delete ghcThread;
+
 		waitForEnter();
+		delete wamThread;
+		delete bhThread;
+		hand.close("");
 		time.smoothStop(TRANSITION_DURATION);
 		wam.idle();
 		

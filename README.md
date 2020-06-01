@@ -93,7 +93,6 @@ Example:
 	motor = "4" or "S" Spread Motion 扩展运动
 	motor = "G" Fingers F1, F2 and F3
 	motor = "" all motors
-
 */
 ```
 #### 3.1.4 hand.GoToDifferentPositions()
@@ -137,4 +136,10 @@ Example:
 	hand.GoToPosition("1", 10000);
 	move F1 to position 10000
 */
+```
+### 3.2 unity bhand control
+```c#
+fingeradd01 = 85 * (130 - (fingerDistance[0]-25)) / 130;
+fingeradd02 = 85 * (170 - (fingerDistance[1] - 20)) / 170;
+fingeradd00 = fingeradd01 > fingeradd02 ? fingeradd01 : fingeradd02;
 ```
