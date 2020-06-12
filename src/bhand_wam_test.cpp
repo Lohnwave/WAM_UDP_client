@@ -1,10 +1,10 @@
 /******************************************************************************\
-* Copyright (C) 2020  江西省智能信息系统重点实验室, All rights reserved.		  *
-* Version: 3.0																	*
-* Last Revised: 2020-06-01														*
-* Editor: Luozu																	*
-* v 1.0: WAM和Bhand同时控制。获得服务器发送的WAM 7个关节角以及Bhand 2个手指间隔		 *
-*  							前者控制WAM位姿，后者控制Bhand抓握					 *
+* Copyright (C) 2020  江西省智能信息系统重点实验室, All rights reserved.          *
+* Version: 3.0                                                                 *
+* Last Revised: 2020-06-01                                                     *
+* Editor: Luozu	                                                               *
+* v 1.0: WAM和Bhand同时控制。获得服务器发送的WAM 7个关节角以及Bhand 2个手指间隔     *
+*                           前者控制WAM位姿，后者控制Bhand抓握                    *
 \******************************************************************************/
 #include <iostream>
 #include <string>
