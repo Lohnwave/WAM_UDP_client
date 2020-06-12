@@ -1,6 +1,6 @@
 /******************************************************************************\
 * Copyright (C) 2020  江西省智能信息系统重点实验室, All rights reserved.          *
-* Version: 3.0                                                                 *
+* Version: WAM 1.0                                                                 *
 * Last Revised: 2020-06-01                                                     *
 * Editor: Luozu	                                                               *
 * v 1.0: WAM控制。获得服务器发送的WAM 7个关节角                                   *
